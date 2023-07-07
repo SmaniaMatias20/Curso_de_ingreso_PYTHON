@@ -44,10 +44,59 @@ class App(customtkinter.CTk):
         self.btn_convertir_f_c.grid(row=4, pady=10, columnspan=2, sticky="nsew")
     
     def btn_convertir_c_f_on_click(self):
-        pass
+        #Harcodeamos los datos
+        #self.txt_temperatura_c.insert(0,"40")
+        
+        #Obtenemos el contenido de la caja de texto y lo almacenamos en la variable
+        grados_centigrados = self.txt_temperatura_c.get()
+        
+        #Casteamos el contenido de la variable
+        grados_centigrados = float(grados_centigrados)
+
+        #Realizamos la operacion
+        grados_fahrenheit = (grados_centigrados*1.8) + 32
+
+        #Formateamos el mensaje y lo asignamos a la variable
+        mensaje = f"{grados_centigrados}°C equivalen a: {grados_fahrenheit}°F".format()
+
+        #Mostramos el mensaje
+        alert(title="Conversion",message=mensaje)
+
+        #Vaciamos las cajas de texto
+        self.txt_temperatura_c.delete(0,100)
+        self.txt_temperatura_f.delete(0,100)
+        
+
+
+
 
     def btn_convertir_f_c_on_click(self):
-        pass
+        #Harcodeamos el dato
+        #self.txt_temperatura_f.insert(0,"50")
+
+        #Obtenemos el contenido de la caja de texto y lo almacenamos en la variable
+        grados_fahrenheit = self.txt_temperatura_f.get()
+
+        #Casteamos el contenido de la variable
+        grados_fahrenheit = float(grados_fahrenheit)
+
+        #Realizamos la operacion
+        grados_centigrados = (grados_fahrenheit - 32) / 1.8
+
+        #Formateamos el mensaje y lo asignamos a la variable
+        mensaje = f"{grados_fahrenheit}°F equivalen a: {grados_centigrados}°C".format()
+
+        #Mostramos el mensaje
+        alert(title="Conversion",message=mensaje)
+
+        #Vaciamos las cajas de texto
+        self.txt_temperatura_c.delete(0,100)
+        self.txt_temperatura_f.delete(0,100)
+
+
+
+
+
     
     
 if __name__ == "__main__":
