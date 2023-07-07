@@ -6,14 +6,13 @@ import customtkinter
 
 
 '''
+Nombre: Matias
+Apellido: Smania
+
 Enunciado:
-Obtener la hora ingresada en el cuadro de texto txt_hora. 
-Al presionar el botón ‘Informar’ mostrar mediante alert alguno de los 
-siguientes mensajes según la hora ingresada:
-    Si está entre las 7 y las 11: ‘Es de mañana’
-    Si está entre las 12 y las 19: ‘Es de tarde’
-    Si está entre las 20 y las 24 o entre las 0 y las 6: ‘Es de noche’
-    Si no está entre 0 y las 24: ‘La hora no existe’
+Obtener la hora ingresada en el txt_hora. Al presionar el botón ‘Informar’ 
+mostrar mediante alert el mensaje ‘Es de mañana’ 
+si la hora ingresada está entre las 7 y las 11
 '''
 
 
@@ -34,10 +33,14 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        hora = self.txt_hora.get()
+        match hora:
+            case "7"|"8"|"9"|"10"|"11":
+                alert("Hora","Es de mañana")
+
+
     
     
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()

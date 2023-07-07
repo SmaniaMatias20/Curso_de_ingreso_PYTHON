@@ -6,16 +6,15 @@ import customtkinter
 
 
 '''
-Enunciado:
-Obtener el valor del mes seleccionado en el combobox_mes y  
-al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
-en función del mes seleccionado:
-    Si el mes seleccionado es Enero: ‘que comiences bien el año!!!’
-    Si el mes seleccionado es Marzo: ‘a clases!!’
-    Si el mes seleccionado es Julio: ‘se vienen las vacaciones!!’
-    Si el mes seleccionado es Diciembre: ‘Felices fiestas!!!’
+Nombre: Matias
+Apellido: Smania
 
-En caso de seleccionar un mes distinto a los mencionados, no hacer nada
+Enuciado:
+Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
+en función del mes seleccionado:
+    Si tiene 28 días
+    Si tiene 30 días
+    Si tiene 31 días
 '''
 
 
@@ -25,7 +24,7 @@ class App(customtkinter.CTk):
         super().__init__()
 
         self.title("UTN FRA")
-
+        
         self.label_meses = customtkinter.CTkLabel(master=self, text="Meses")
         self.label_meses.grid(row=0, column=0, padx=20, pady=10)
         meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -37,10 +36,15 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-    
+        mes = self.combobox_mes.get()
+        match mes:
+            case "Enero"|"Marzo"|"Mayo"|"Julio"|"Agosto"|"Octubre"|"Diciembre":
+                alert(mes,"Tiene 31 días")
+            case "Abril"|"Junio"|"Septiembre"|"Noviembre": 
+                alert(mes,"Tiene 30 días")
+            case _: 
+                alert(mes,"Tiene 28 días")    
     
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()

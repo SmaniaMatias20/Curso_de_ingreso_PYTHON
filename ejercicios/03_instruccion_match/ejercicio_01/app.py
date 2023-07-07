@@ -6,15 +6,19 @@ import customtkinter
 
 
 '''
-Enunciado:
-Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
-en función del mes seleccionado:
-    Si estamos en invierno: ‘¡Abrígate que hace frío!’
-    Si aún no llegó el invierno: ‘Falta para el invierno..’
-    Si ya pasó el invierno: ‘¡Ya pasamos frío, ahora calor!’
-	
-Aclaracion: tomamos a Julio y Agosto como los meses de invierno
+Nombre: Matias 
+Apellido: Smania
 
+Enunciado:
+Obtener el valor del mes seleccionado en el combobox_mes y  
+al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
+en función del mes seleccionado:
+    Si el mes seleccionado es Enero: ‘que comiences bien el año!!!’
+    Si el mes seleccionado es Marzo: ‘a clases!!’
+    Si el mes seleccionado es Julio: ‘se vienen las vacaciones!!’
+    Si el mes seleccionado es Diciembre: ‘Felices fiestas!!!’
+
+En caso de seleccionar un mes distinto a los mencionados, no hacer nada
 '''
 
 
@@ -24,7 +28,7 @@ class App(customtkinter.CTk):
         super().__init__()
 
         self.title("UTN FRA")
-        
+
         self.label_meses = customtkinter.CTkLabel(master=self, text="Meses")
         self.label_meses.grid(row=0, column=0, padx=20, pady=10)
         meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -36,10 +40,18 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes = self.combobox_mes.get()
+        match mes:
+            case "Enero":
+                return alert(mes,"Que comiences bien el año!!!")
+            case "Marzo":
+                return alert(mes,"A clases!!")
+            case "Julio":
+                return alert(mes,"Se vienen las vacaciones!!")
+            case "Diciembre":
+                return alert(mes,"Felices fiestas!!!") 
     
     
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()

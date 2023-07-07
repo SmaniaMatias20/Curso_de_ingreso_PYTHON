@@ -6,11 +6,17 @@ import customtkinter
 
 
 '''
-Enuciado:
-Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes 
-mensajes en función del mes seleccionado:
-    Si es febrero: ‘Este mes no tiene más de 29 días’
-    Si no es febrero: ‘Este mes tiene 30 días o mas’
+Nombre: Matias
+Apellido: Smania
+
+Enunciado:
+Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
+en función del mes seleccionado:
+    Si estamos en invierno: ‘¡Abrígate que hace frío!’
+    Si aún no llegó el invierno: ‘Falta para el invierno..’
+    Si ya pasó el invierno: ‘¡Ya pasamos frío, ahora calor!’
+	
+Aclaracion: tomamos a Julio y Agosto como los meses de invierno
 
 '''
 
@@ -33,10 +39,17 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes = self.combobox_mes.get()
+        match mes:
+            case "Julio" | "Agosto":
+                return alert(mes,"¡Abrígate que hace frío!")
+            case "Enero" | "Febrero" | "Marzo" | "Abril" | "Mayo" | "Junio":
+                return alert(mes,"Falta para el invierno..")
+            case "Septiembre" | "Octubre" | "Noviembre" | "Diciembre":
+                return alert(mes,"¡Ya pasamos frío, ahora calor!")
+            
     
     
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()

@@ -3,17 +3,16 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
-import random
-
 
 '''
-nombre:
-apellido:
+nombre: Matias
+apellido: Smania
 ---
-Ejercicio: instrucion_if_09
+Ejercicio: entrada_salida_02
 ---
-Al presionar el botón  'Calcular', se deberá mostrar (utilizando el Dialog alert) un número
-aleatorio entre el 1 y el 10 inclusive
+Enunciado:
+Al presionar el botón  'Mostrar', se deberá obtener un dato utilizando el Dialog Prompt
+y luego mostrarlo utilizando el Dialog Alert
 '''
 
 class App(customtkinter.CTk):
@@ -22,17 +21,18 @@ class App(customtkinter.CTk):
         super().__init__()
 
         # configure window
-        self.title("UTN Fra")
-
+        self.title("UTN FRA")
+       
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        pass
+        valor = prompt(title = "Prompt", prompt = "Ingrese un valor")
+        alert("Valor", valor)
         
-
+        
+    
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()
