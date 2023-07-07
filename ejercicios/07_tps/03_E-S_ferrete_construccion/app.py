@@ -63,7 +63,55 @@ class App(customtkinter.CTk):
         self.btn_calcular.grid(row=3, pady=10, columnspan=2, sticky="nsew")
 
     def btn_calcular_on_click(self):
-        pass
+
+        #PuntoA
+        largo = self.txt_largo.get()
+        ancho = self.txt_ancho.get()
+        largo = float(largo)
+        ancho = float(ancho)
+
+        metros_cuadrados = largo * ancho
+        metros_lineales = (largo + ancho) * 2
+        primer_mensaje = f"Los metros cuadrados del terreno son {metros_cuadrados}m2 ... y los metros lineales del perimetro son {metros_lineales}".format()
+
+        alert(title="Punto A", message=primer_mensaje)
+
+        #PuntoB
+        esquinas = 4
+        distancia_postes_gruesos = 250
+        postes_gruesos = esquinas + (metros_lineales - (distancia_postes_gruesos * esquinas)) / distancia_postes_gruesos
+        postes_gruesos = round(postes_gruesos)
+        
+        segundo_mensaje = f"Se necesitaran {postes_gruesos} postes de quebracho grueso de 2.4mts."
+
+        alert(title="Punto B", message=segundo_mensaje)
+
+        #PuntoC
+        distancia_postes_finos = 12
+        postes_finos = (metros_lineales / distancia_postes_finos) + (metros_lineales - distancia_postes_gruesos * esquinas) // distancia_postes_gruesos - 4 - (metros_lineales / 1500)
+        postes_finos = round(postes_finos)
+
+        tercer_mensaje = f"Se necesitaran {postes_finos} postes de quebracho fino de 2.2mts."
+
+        alert(title="Punto C", message=tercer_mensaje)
+
+        #PuntoD
+        distancia_varillas = 2
+        varillas = metros_lineales / distancia_varillas
+
+        cuarto_mensaje = f"Se necesitaran {varillas} varillas"
+
+        alert(title="Punto D", message=cuarto_mensaje)
+
+        #PuntoE
+        hilos = 7
+        metros_alambre = metros_lineales * hilos
+
+        quinto_mensaje = f"Se necesitaran {metros_alambre} metros de alambre"
+
+        alert(title="Punto E", message=quinto_mensaje)
+
+        
 
 
 if __name__ == "__main__":
