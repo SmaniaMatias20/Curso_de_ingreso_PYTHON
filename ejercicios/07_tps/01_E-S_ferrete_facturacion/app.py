@@ -5,6 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Matias
+Apellido: Smania
+
 Enunciado:
 Para el departamento de facturación:
     A.	Ingresar tres precios de productos y mostrar la suma de los mismos.
@@ -48,13 +51,92 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        #Harcodeamos los tres importes
+        #self.txt_importe_1.insert(0,"25")
+        #self.txt_importe_2.insert(0,"25")
+        #self.txt_importe_3.insert(0,"50")
+
+        #Obtenemos el contenido de las cajas de texto y lo almacenamos en las variables
+        precio_primer_producto = self.txt_importe_1.get()
+        precio_segundo_producto = self.txt_importe_2.get()
+        precio_tercer_producto = self.txt_importe_3.get()
+
+        #Casteamos el contenido de las variables
+        precio_primer_producto = float(precio_primer_producto) 
+        precio_segundo_producto = float(precio_segundo_producto)
+        precio_tercer_producto = float(precio_tercer_producto)
+
+        #Realizamos la operacion
+        total = precio_primer_producto + precio_segundo_producto + precio_tercer_producto
+
+        #Formateamos y mostramos el mensaje 
+        mensaje = f"La suma de los tres productos es: ${total}".format()
+        alert(title="Suma", message=mensaje)
+
+        #Vaciamos las cajas de texto
+        self.txt_importe_1.delete(0,100)
+        self.txt_importe_2.delete(0,100)
+        self.txt_importe_3.delete(0,100)
+        
+
 
     def btn_promedio_on_click(self):
-        pass
+        #Harcodeamos los tres importes
+        #self.txt_importe_1.insert(0,"25")
+        #self.txt_importe_2.insert(0,"25")
+        #self.txt_importe_3.insert(0,"50")
+
+        #Obtenemos el contenido de las cajas de texto y lo almacenamos en las variables
+        precio_primer_producto = self.txt_importe_1.get()
+        precio_segundo_producto = self.txt_importe_2.get()
+        precio_tercer_producto = self.txt_importe_3.get()
+
+        #Casteamos el contenido de las variables
+        precio_primer_producto = float(precio_primer_producto) 
+        precio_segundo_producto = float(precio_segundo_producto)
+        precio_tercer_producto = float(precio_tercer_producto)
+
+        #Realizamos la operacion
+        promedio = (precio_primer_producto + precio_segundo_producto + precio_tercer_producto)/3
+
+        #Formateamos y mostramos el contenido del mensaje
+        mensaje = f"El promedio de los tres productos es: ${promedio}".format() 
+        alert(title="Promedio", message=mensaje) 
+
+        #Vaciamos las cajas de texto
+        self.txt_importe_1.delete(0,100)
+        self.txt_importe_2.delete(0,100)
+        self.txt_importe_3.delete(0,100)
 
     def btn_total_iva_on_click(self):
-        pass      
+        #Harcodeamos los tres importes
+        #self.txt_importe_1.insert(0,"25")
+        #self.txt_importe_2.insert(0,"25")
+        #self.txt_importe_3.insert(0,"50")
+
+        #Obtenemos el contenido de las cajas de texto y lo almacenamos en las variables
+        precio_primer_producto = self.txt_importe_1.get()
+        precio_segundo_producto = self.txt_importe_2.get()
+        precio_tercer_producto = self.txt_importe_3.get()
+
+        #Casteamos el contenido de las variables
+        precio_primer_producto = float(precio_primer_producto) 
+        precio_segundo_producto = float(precio_segundo_producto)
+        precio_tercer_producto = float(precio_tercer_producto)
+
+        #Realizamos la operacion
+        precio_final = (precio_primer_producto + precio_segundo_producto + precio_tercer_producto) * 1.21   
+
+        #Formateamos y mostramos el contenido del mensaje
+        mensaje = f"El precio final de los productos es: ${precio_final}".format() 
+        alert(title="Precio con IVA", message=mensaje) 
+
+        #Vaciamos las cajas de texto
+        self.txt_importe_1.delete(0,100)
+        self.txt_importe_2.delete(0,100)
+        self.txt_importe_3.delete(0,100)
+        
+         
     
 if __name__ == "__main__":
     app = App()
