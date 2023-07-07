@@ -55,7 +55,7 @@ class App(customtkinter.CTk):
                 else:
                     alert(destino, "NO se viaja")  
             case "Verano":
-                if destino == "Mar del Plata" | destino == "Cataratas":
+                if destino == "Mar del plata" or destino == "Cataratas":
                     alert(destino, "Se viaja")
                 else:
                     alert(destino, "NO se viaja")

@@ -44,7 +44,8 @@ class App(customtkinter.CTk):
         primer_numero = self.txt_operador_a.get()
         segundo_numero = self.txt_operador_b.get()
         resto = int(primer_numero) % int(segundo_numero)
-        alert(title="Resto", message = "El resto de dividir " + str(primer_numero) + " por " + str(segundo_numero) + " es: " + str(resto))
+        mensaje = f"El resto de dividir {primer_numero} por {segundo_numero} es: {resto}".format()
+        alert(title="Resto", message = mensaje)
         
         
     
