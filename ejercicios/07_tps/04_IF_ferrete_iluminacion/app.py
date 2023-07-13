@@ -116,10 +116,9 @@ class App(customtkinter.CTk):
             precio_final = precio_base_lampara * cantidad_lamparas 
 
         if precio_final > 4000:
-            precio_final = precio_final * 0.95
-            mensaje = f"La cantidad de lamparas compradas es de {cantidad_lamparas}, la marca es {marca_lampara} y el precio final es de {precio_final}"
-        else:
-            mensaje = f"La cantidad de lamparas compradas es de {cantidad_lamparas}, la marca es {marca_lampara} y el precio final es de {precio_final}"    
+            precio_final = precio_final * 0.95   
+        
+        mensaje = f"La cantidad de lamparas compradas es de {cantidad_lamparas}, la marca es {marca_lampara} y el precio final es de {precio_final}" 
                 
         alert(title = "Ejercicio 4", message = mensaje)               
 
