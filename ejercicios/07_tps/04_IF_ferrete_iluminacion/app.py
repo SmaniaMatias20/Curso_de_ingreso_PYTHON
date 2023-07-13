@@ -1,3 +1,4 @@
+import random
 import tkinter
 from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
@@ -41,7 +42,44 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        cantidad_lamparas = self.combobox_cantidad.get()
+        marca_lampara = self.combobox_marca.get()
+        cantidad_lamparas = int(cantidad_lamparas)
+        precio_base_lampara = 800
+        
+        if cantidad_lamparas >= 6:
+            precio_final = (precio_base_lampara * cantidad_lamparas) * 0.50       
+        else: 
+            if cantidad_lamparas == 5: 
+                if marca_lampara == "ArgentinaLuz":
+                    precio_final = (precio_base_lampara * cantidad_lamparas) * 0.60
+                else: 
+                    precio_final = (precio_base_lampara * cantidad_lamparas) * 0.70        
+            else:
+                if cantidad_lamparas == 4: 
+                    if marca_lampara == "ArgentinaLuz" or marca_lampara == "FelipeLamparas":  
+                        precio_final = (precio_base_lampara * cantidad_lamparas) * 0.75 
+                    else: 
+                        precio_final = (precio_base_lampara * cantidad_lamparas) * 0.80 
+                else:          
+                    if cantidad_lamparas == 3:
+                        if marca_lampara == "ArgentinaLuz":    
+                            precio_final = (precio_base_lampara * cantidad_lamparas) * 0.85
+                        else:    
+                            if marca_lampara == "FelipeLamparas":
+                                precio_final = (precio_base_lampara * cantidad_lamparas) * 0.90    
+                            else:        
+                                precio_final = (precio_base_lampara * cantidad_lamparas) * 0.95 
+                    else: 
+                        precio_final = precio_base_lampara * cantidad_lamparas            
+
+        if precio_final > 4000:
+            precio_final = precio_final * 0.95
+            mensaje = f"La cantidad de lamparas compradas es de {cantidad_lamparas}, la marca es {marca_lampara} y el precio final es de {precio_final}"
+        else:
+            mensaje = f"La cantidad de lamparas compradas es de {cantidad_lamparas}, la marca es {marca_lampara} y el precio final es de {precio_final}"    
+                
+        alert(title = "Ejercicio 4", message = mensaje)
         
     
 if __name__ == "__main__":

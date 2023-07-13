@@ -31,7 +31,32 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+
+        self.txt_promedio.delete(0,100)
+        self.txt_suma_acumulada.delete(0,100)
+
+        contador = 0
+        acumulador = 0
+
+        while contador < 5:
+            contador+=1
+            numero = prompt(title="Numero", prompt="Ingrese un numero")
+            acumulador = acumulador + int(numero)
+
+        promedio = acumulador / contador
+
+        promedio = str(promedio)
+        self.txt_promedio.insert(1, promedio)
+        acumulador = str(acumulador)
+        self.txt_suma_acumulada.insert(1, acumulador)
+
+        
+
+
+
+        
+
+
 
     
 if __name__ == "__main__":
