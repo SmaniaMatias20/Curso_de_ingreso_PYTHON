@@ -39,11 +39,13 @@ class App(customtkinter.CTk):
         mes = self.combobox_mes.get()
         match mes:
             case "Enero"|"Marzo"|"Mayo"|"Julio"|"Agosto"|"Octubre"|"Diciembre":
-                alert(mes,"Tiene 31 días")
+                mensaje = "Tiene 31 días"
             case "Abril"|"Junio"|"Septiembre"|"Noviembre": 
-                alert(mes,"Tiene 30 días")
+                mensaje= "Tiene 30 días"
             case _: 
-                alert(mes,"Tiene 28 días")    
+                mensaje = "Tiene 28 días"   
+
+        alert(mes, mensaje)        
     
 if __name__ == "__main__":
     app = App()

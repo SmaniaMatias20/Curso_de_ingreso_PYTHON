@@ -51,23 +51,23 @@ class App(customtkinter.CTk):
         match estacion:
             case "Invierno":
                 if destino == "Bariloche":
-                    alert(destino, "Se viaja")
+                    mensaje = "Se viaja"     
                 else:
-                    alert(destino, "NO se viaja")  
+                    mensaje= "NO se viaja"
             case "Verano":
                 if destino == "Mar del plata" or destino == "Cataratas":
-                    alert(destino, "Se viaja")
+                    mensaje = "Se viaja"
                 else:
-                    alert(destino, "NO se viaja")
+                    mensaje= "NO se viaja"
             case "Otoño":
-                    alert(destino, "Se viaja")   
+                    mensaje = "Se viaja"   
             case "Primavera":
                 if destino != "Bariloche":
-                    alert(destino, "Se viaja")
+                    mensaje = "Se viaja"
                 else:
-                    alert(destino, "NO se viaja")                          
+                    mensaje= "NO se viaja"                         
 
-                 
+        alert(destino, mensaje)         
             
     
 if __name__ == "__main__":

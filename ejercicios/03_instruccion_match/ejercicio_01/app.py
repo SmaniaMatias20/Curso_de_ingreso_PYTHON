@@ -43,14 +43,15 @@ class App(customtkinter.CTk):
         mes = self.combobox_mes.get()
         match mes:
             case "Enero":
-                return alert(mes,"Que comiences bien el año!!!")
+                mensaje = "Que comiences bien el año!!!"
             case "Marzo":
-                return alert(mes,"A clases!!")
+                mensaje = "A clases!!"
             case "Julio":
-                return alert(mes,"Se vienen las vacaciones!!")
+                mensaje = "Se vienen las vacaciones!!"
             case "Diciembre":
-                return alert(mes,"Felices fiestas!!!") 
-    
+                mensaje = "Felices fiestas!!!"
+
+        alert(mes, mensaje)
     
 if __name__ == "__main__":
     app = App()

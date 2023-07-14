@@ -63,48 +63,35 @@ class App(customtkinter.CTk):
             case "Bariloche":
                 match estacion:
                     case "Invierno":
-                        precio_total = precio_base * 1.20
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 1.20                       
                     case "Verano":
-                        precio_total = precio_base * 0.80
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 0.80                        
                     case "Otoño" | "Primavera":
-                        precio_total = precio_base * 1.10
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 1.10                        
             case "Mar del plata":
                 match estacion:
                     case "Invierno":
-                        precio_total = precio_base * 0.80
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 0.80                        
                     case "Verano":
-                        precio_total = precio_base * 1.20
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 1.20                        
                     case "Otoño" | "Primavera":
-                        precio_total = precio_base * 1.10
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 1.10                       
             case "Cataratas":
                 match estacion:
                     case "Invierno":
-                        precio_total = precio_base * 0.90
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 0.90                       
                     case "Verano":
                         precio_total = precio_base * 1.10
-                        alert("Precio", precio_total)
                     case "Otoño" | "Primavera":
-                        precio_total = precio_base * 1.10
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 1.10            
             case "Cordoba":
                 match estacion:
                     case "Invierno":
-                        precio_total = precio_base * 0.90
-                        alert("Precio", precio_total)
+                        precio_total = precio_base * 0.90     
                     case "Verano":
-                        precio_total = precio_base * 1.10
-                        alert("Precio", precio_total)
-                    case "Otoño" | "Primavera":
-                        alert("Precio",precio_base)                                    
+                        precio_total = precio_base * 1.10                                                   
 
-
+        alert("Precio", precio_total)    
             
     
 if __name__ == "__main__":

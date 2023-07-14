@@ -35,14 +35,15 @@ class App(customtkinter.CTk):
         destino = self.combobox_destino.get()
 
         match destino:
-            case "Bariloche":
-                alert(destino,"Se encuentra al Sur")
+            case "Bariloche" | "Ushuaia" :
+                mensaje = "Se encuentra al Sur" 
             case "Mar del plata":
-                alert(destino,"Se encuentra al Este")  
+                mensaje = "Se encuentra al Este" 
             case "Cataratas":
-                alert(destino,"Se encuentra al Norte")
-            case "Ushuaia":
-                alert(destino,"Se encuentra al Sur")    
+                mensaje = "Se encuentra al Norte"
+             
+
+        alert(destino, mensaje)        
     
     
 if __name__ == "__main__":

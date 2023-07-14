@@ -36,9 +36,11 @@ class App(customtkinter.CTk):
 
         match destino:
             case "Bariloche" | "Ushuaia" | "Mar del plata":
-                alert(destino,"Hace frio")  
+                mensaje = "Hace frio"
             case "Cataratas":
-                alert(destino,"Hace calor")
+                mensaje = "Hace calor"
+
+        alert(destino, mensaje)        
             
     
     

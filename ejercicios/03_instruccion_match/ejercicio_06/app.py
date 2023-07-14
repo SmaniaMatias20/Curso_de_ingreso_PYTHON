@@ -41,14 +41,15 @@ class App(customtkinter.CTk):
 
         match hora:
             case "7"|"8"|"9"|"10"|"11":
-                alert("Hora","Es de mañana")
+                mensaje = "Es de mañana"
             case "12"|"13"|"14"|"15"|"16"|"17"|"18"|"19":
-                alert("Hora","Es de tarde") 
+                mensaje = "Es de tarde"
             case "20"|"21"|"22"|"23"|"24"|"0"|"1"|"2"|"3"|"4"|"5"|"6":
-                 alert("Hora","Es de noche") 
+                mensaje = "Es de noche" 
             case _:
-                alert("Error","La hora no existe") 
+                mensaje = "La hora no existe" 
 
+        alert("Hora",mensaje)
 
     
     
