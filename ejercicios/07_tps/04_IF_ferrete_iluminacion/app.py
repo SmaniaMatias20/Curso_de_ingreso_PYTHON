@@ -42,7 +42,9 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
+
         #Primera forma
+        
         """ 
         cantidad_lamparas = self.combobox_cantidad.get()
         marca_lampara = self.combobox_marca.get()
@@ -87,6 +89,7 @@ class App(customtkinter.CTk):
 
         #Segunda forma
 
+        """ 
         cantidad_lamparas = self.combobox_cantidad.get()
         marca_lampara = self.combobox_marca.get()
         cantidad_lamparas = int(cantidad_lamparas)
@@ -120,7 +123,55 @@ class App(customtkinter.CTk):
         
         mensaje = f"La cantidad de lamparas compradas es de {cantidad_lamparas}, la marca es {marca_lampara} y el precio final es de {precio_final}" 
                 
-        alert(title = "Ejercicio 4", message = mensaje)               
+        alert(title = "Ejercicio 4", message = mensaje)
+        
+        """ 
+
+        #Con Match
+        cantidad_lamparas = self.combobox_cantidad.get()
+        marca_lampara = self.combobox_marca.get()
+        cantidad_lamparas = int(cantidad_lamparas)
+        precio_base_lampara = 800
+
+        match cantidad_lamparas:
+            case 6 | 7 | 8 | 9 | 10 | 11 | 12:
+                precio_final = (precio_base_lampara * cantidad_lamparas) * 0.50
+            case 5:
+                if marca_lampara == "ArgentinaLuz":
+                    precio_final = (precio_base_lampara * cantidad_lamparas) * 0.60
+                else: 
+                    precio_final = (precio_base_lampara * cantidad_lamparas) * 0.70
+            case 4:
+                if marca_lampara == "ArgentinaLuz" or marca_lampara == "FelipeLamparas":  
+                    precio_final = (precio_base_lampara * cantidad_lamparas) * 0.75 
+                else: 
+                    precio_final = (precio_base_lampara * cantidad_lamparas) * 0.80         
+            case 3:
+                if marca_lampara == "ArgentinaLuz":    
+                    precio_final = (precio_base_lampara * cantidad_lamparas) * 0.85
+                else:    
+                    if marca_lampara == "FelipeLamparas":
+                        precio_final = (precio_base_lampara * cantidad_lamparas) * 0.90    
+                    else:        
+                        precio_final = (precio_base_lampara * cantidad_lamparas) * 0.95
+            case _:
+                precio_final = precio_base_lampara * cantidad_lamparas 
+
+        if precio_final > 4000:
+            precio_final = precio_final * 0.95   
+        
+        mensaje = f"La cantidad de lamparas compradas es de {cantidad_lamparas}, la marca es {marca_lampara} y el precio final es de {precio_final}" 
+                
+        alert(title = "Ejercicio 4", message = mensaje)         
+
+
+
+
+
+         
+                
+
+
 
 
           
