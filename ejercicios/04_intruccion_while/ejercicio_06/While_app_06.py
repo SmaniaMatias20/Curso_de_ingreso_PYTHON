@@ -44,11 +44,9 @@ class App(customtkinter.CTk):
             acumulador = acumulador + int(numero)
 
         promedio = acumulador / contador
-
-        promedio = str(promedio)
-        self.txt_promedio.insert(1, promedio)
-        acumulador = str(acumulador)
-        self.txt_suma_acumulada.insert(1, acumulador)
+        
+        self.txt_promedio.insert(0, promedio)
+        self.txt_suma_acumulada.insert(0, acumulador)
 
         
 
