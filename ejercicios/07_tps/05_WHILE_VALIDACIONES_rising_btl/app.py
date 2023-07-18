@@ -54,35 +54,51 @@ class App(customtkinter.CTk):
         bandera = True
 
         while bandera:
-            apellido = prompt("Apellido", "Ingrese su apellido")
 
-            if apellido != "": #Validar que se ingrese por lo menos una cadena
+            #Ingresamos mediante el prompt el apellido
+            apellido = prompt("Apellido", "Ingrese su apellido") 
+
+            #Validamos si se almaceno algo en la variable apellido
+            if apellido != "": 
+                #Validamos si lo ingresado no es decimal
                 if not apellido.isdecimal(): 
+                    #Si cumple ambas condiciones eliminamos lo que haya en la caja de texto e insertamos el contenido de la variable
                     self.txt_apellido.delete(0,100)
                     self.txt_apellido.insert(0, apellido)
-                else: 
+                else:
+                    #Si el usuario ingresa un numero, le informamos mediante el alert el error 
                     alert("Error", "No debe ingresar numeros")
                     continue
             else:
+                #Si el usuario no ingresa nada le informamos mediante el alert el error
                 alert("Error", "Debe ingresar un apellido")
                 continue
 
-
+            #Ingresamos mediante el prompt la edad
             edad = prompt("Edad", "Ingrese su edad")
+
+            #Validamos que la edad ingresada sea un numero
             if edad.isdecimal():
+                #Casteamos la variable 
                 edad = int(edad)
+                #Validamos si la edad esta entre 18 y 90 años
                 if edad >= 18 and edad <= 90:
                     self.txt_edad.delete(0,100)
                     self.txt_edad.insert(0, edad)
                 else:
+                    #Si la edad no esta en ese rango, informamos el error mediante un alert
                     alert("Error", "La edad debe ser entre 18 y 90 años")
                     continue 
             else:
+                #Si no se ingresan un numero, informamos el error mediante un alert
                 alert("Error", "Debe ingresar un numero")   
                 continue    
 
+            #Ingresamos el estado civil mediante el prompt     
             estado_civil = prompt("Estado Civil", "Ingrese su estado civil")
-            match estado_civil.lower(): #Pasamos a minuscula estado_civil
+
+            #Utilizamos el match para las distintas opciones del estado civil
+            match estado_civil.lower(): 
                 case "soltero" | "soltera":  
                     self.combobox_tipo.set("Soltero/a")
                 case "casado" | "casada":
@@ -92,24 +108,31 @@ class App(customtkinter.CTk):
                 case "viudo" | "viuda":
                     self.combobox_tipo.set("Viudo/a")
                 case _:
+                    #Si el usuario no ingresa alguna de esas opciones, informamos el error mediante un alert
                     alert("Error", "Debe elegir un Estado Civil")
                     continue        
                    
-
+            #Ingresamos el numero de legajo mediante el prompt
             numero_legajo = prompt("Numero Legajo","Ingrese su numero de legajo")
             
+            #Validamos que el valor ingresado sea un decimal
             if numero_legajo.isdecimal():
+                #Validamos si la posicion 0 de la cadena es distinta de 0(cero) y que si la cadena tiene 4 posiciones
                 if numero_legajo[0] != "0" and numero_legajo.__len__() == 4:
+                    #Si cumple con las dos condiciones, casteamos la variable a entero y la asignamos a la caja de texto
                     numero_legajo = int(numero_legajo)
                     self.txt_legajo.delete(0,100)
                     self.txt_legajo.insert(0,numero_legajo)
                 else:
+                    #Si no cumple con la condicion informamos el error mediante un alert
                     alert("Error", "El numero ingresado debe tener cuatro cifras y no puede tener 0(ceros) a la izquierda")
                     continue
             else:
+                #Si no cumple con la condicion, informamos el error mediante un alert
                 alert("Error", "Debe ingresar un numero") 
                 continue   
-
+            
+            #Salimos del ciclo
             bandera = False       
 
 
