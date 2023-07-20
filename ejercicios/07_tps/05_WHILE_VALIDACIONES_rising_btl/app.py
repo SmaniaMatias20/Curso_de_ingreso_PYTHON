@@ -77,6 +77,7 @@ class App(customtkinter.CTk):
             #Ingresamos mediante el prompt la edad
             edad = prompt("Edad", "Ingrese su edad")
 
+            #Validamos que el valor almacenado en la variable no sea None
             if edad != None:
                 #Validamos que la edad ingresada sea un numero
                 if edad.isdecimal():
@@ -106,8 +107,9 @@ class App(customtkinter.CTk):
             \n-Divorciado/a
             """)
 
-            #Utilizamos el match para las distintas opciones del estado civil
+            #Validamos que el valor almacenado en la variable no sea None
             if estado_civil != None:
+                #Utilizamos el match para las distintas opciones del estado civil
                 match estado_civil.lower(): 
                     case "soltero" | "soltera":  
                         self.combobox_tipo.set("Soltero/a")
@@ -122,13 +124,14 @@ class App(customtkinter.CTk):
                         alert("Error", "Debe elegir un Estado Civil")
                         continue        
             else: 
+                #Si no cumple con la condicion, informamos el error mediante un alert
                 alert("Error", "Debe ingresar un estado civil")
                 continue 
 
             #Ingresamos el numero de legajo mediante el prompt
             numero_legajo = prompt("Numero Legajo","Ingrese su numero de legajo")
             
-            
+            #Validamos que el valor almacenado en la variable no sea None
             if numero_legajo != None:
                 #Validamos que el valor ingresado sea un decimal
                 if numero_legajo.isdecimal():
@@ -147,6 +150,7 @@ class App(customtkinter.CTk):
                     alert("Error", "Debe ingresar un numero") 
                     continue   
             else:
+                #Si no cumple con la condicion, informamos el error mediante un alert
                 alert("Error", "Debe ingresar el numero de legajo")
                 continue 
 
