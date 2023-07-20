@@ -59,7 +59,7 @@ class App(customtkinter.CTk):
             apellido = prompt("Apellido", "Ingrese su apellido") 
 
             #Validamos si se almaceno algo en la variable apellido
-            if apellido != "": 
+            if apellido != "" and apellido != None: 
                 #Validamos si lo ingresado no es decimal
                 if not apellido.isdecimal(): 
                     #Si cumple ambas condiciones eliminamos lo que haya en la caja de texto e insertamos el contenido de la variable
@@ -77,61 +77,79 @@ class App(customtkinter.CTk):
             #Ingresamos mediante el prompt la edad
             edad = prompt("Edad", "Ingrese su edad")
 
-            #Validamos que la edad ingresada sea un numero
-            if edad.isdecimal():
-                #Casteamos la variable 
-                edad = int(edad)
-                #Validamos si la edad esta entre 18 y 90 años
-                if edad >= 18 and edad <= 90:
-                    self.txt_edad.delete(0,100)
-                    self.txt_edad.insert(0, edad)
+            if edad != None:
+                #Validamos que la edad ingresada sea un numero
+                if edad.isdecimal():
+                    #Casteamos la variable 
+                    edad = int(edad)
+                    #Validamos si la edad esta entre 18 y 90 años
+                    if edad >= 18 and edad <= 90:
+                        self.txt_edad.delete(0,100)
+                        self.txt_edad.insert(0, edad)
+                    else:
+                        #Si la edad no esta en ese rango, informamos el error mediante un alert
+                        alert("Error", "La edad debe ser entre 18 y 90 años")
+                        continue 
                 else:
-                    #Si la edad no esta en ese rango, informamos el error mediante un alert
-                    alert("Error", "La edad debe ser entre 18 y 90 años")
-                    continue 
+                    #Si no se ingresan un numero, informamos el error mediante un alert
+                    alert("Error", "Debe ingresar un numero")   
+                    continue    
             else:
-                #Si no se ingresan un numero, informamos el error mediante un alert
-                alert("Error", "Debe ingresar un numero")   
-                continue    
+                alert("Error", "Debe ingresar la edad") 
+                continue        
 
             #Ingresamos el estado civil mediante el prompt     
-            estado_civil = prompt("Estado Civil", "Ingrese su estado civil")
+            estado_civil = prompt("Estado Civil", """Ingrese su estado civil:
+            \n-Soltero/a
+            \n-Casado/a
+            \n-Viudo/a
+            \n-Divorciado/a
+            """)
 
             #Utilizamos el match para las distintas opciones del estado civil
-            match estado_civil.lower(): 
-                case "soltero" | "soltera":  
-                    self.combobox_tipo.set("Soltero/a")
-                case "casado" | "casada":
-                    self.combobox_tipo.set("Casado/a")
-                case "divorciado" | "divorciada":  
-                    self.combobox_tipo.set("Divorciado/a")
-                case "viudo" | "viuda":
-                    self.combobox_tipo.set("Viudo/a")
-                case _:
-                    #Si el usuario no ingresa alguna de esas opciones, informamos el error mediante un alert
-                    alert("Error", "Debe elegir un Estado Civil")
-                    continue        
-                   
+            if estado_civil != None:
+                match estado_civil.lower(): 
+                    case "soltero" | "soltera":  
+                        self.combobox_tipo.set("Soltero/a")
+                    case "casado" | "casada":
+                        self.combobox_tipo.set("Casado/a")
+                    case "divorciado" | "divorciada":  
+                        self.combobox_tipo.set("Divorciado/a")
+                    case "viudo" | "viuda":
+                        self.combobox_tipo.set("Viudo/a")
+                    case _:
+                        #Si el usuario no ingresa alguna de esas opciones, informamos el error mediante un alert
+                        alert("Error", "Debe elegir un Estado Civil")
+                        continue        
+            else: 
+                alert("Error", "Debe ingresar un estado civil")
+                continue 
+
             #Ingresamos el numero de legajo mediante el prompt
             numero_legajo = prompt("Numero Legajo","Ingrese su numero de legajo")
             
-            #Validamos que el valor ingresado sea un decimal
-            if numero_legajo.isdecimal():
-                #Validamos si la posicion 0 de la cadena es distinta de 0(cero) y que si la cadena tiene 4 posiciones
-                if numero_legajo[0] != "0" and numero_legajo.__len__() == 4:
-                    #Si cumple con las dos condiciones, casteamos la variable a entero y la asignamos a la caja de texto
-                    numero_legajo = int(numero_legajo)
-                    self.txt_legajo.delete(0,100)
-                    self.txt_legajo.insert(0,numero_legajo)
-                else:
-                    #Si no cumple con la condicion informamos el error mediante un alert
-                    alert("Error", "El numero ingresado debe tener cuatro cifras y no puede tener 0(ceros) a la izquierda")
-                    continue
-            else:
-                #Si no cumple con la condicion, informamos el error mediante un alert
-                alert("Error", "Debe ingresar un numero") 
-                continue   
             
+            if numero_legajo != None:
+                #Validamos que el valor ingresado sea un decimal
+                if numero_legajo.isdecimal():
+                    #Validamos si la posicion 0 de la cadena es distinta de 0(cero) y que si la cadena tiene 4 posiciones
+                    if numero_legajo[0] != "0" and numero_legajo.__len__() == 4:
+                        #Si cumple con las dos condiciones, casteamos la variable a entero y la asignamos a la caja de texto
+                        numero_legajo = int(numero_legajo)
+                        self.txt_legajo.delete(0,100)
+                        self.txt_legajo.insert(0,numero_legajo)
+                    else:
+                        #Si no cumple con la condicion informamos el error mediante un alert
+                        alert("Error", "El numero ingresado debe tener cuatro cifras y no puede tener 0(ceros) a la izquierda")
+                        continue
+                else:
+                    #Si no cumple con la condicion, informamos el error mediante un alert
+                    alert("Error", "Debe ingresar un numero") 
+                    continue   
+            else:
+                alert("Error", "Debe ingresar el numero de legajo")
+                continue 
+
             #Salimos del ciclo
             bandera = False       
 
