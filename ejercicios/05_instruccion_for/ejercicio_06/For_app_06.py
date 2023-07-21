@@ -36,6 +36,10 @@ class App(customtkinter.CTk):
         # alert("Cantidad de pares", f"La cantidad de numeros pares encontrados es: {contador_pares}")
 
         numero_ingresado = prompt("Numero", "Ingrese un numero")
+
+        while numero_ingresado == None or not numero_ingresado.isdigit():
+            numero_ingresado = prompt("Numero", "Ingrese un numero")
+
         numero_ingresado = int(numero_ingresado)
         contador_pares = 0
         lista_numeros = range(1,numero_ingresado+1)

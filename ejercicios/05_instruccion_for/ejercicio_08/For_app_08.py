@@ -25,6 +25,10 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         numero_ingresado = prompt("Numero", "Ingrese un numero")
+
+        while numero_ingresado == None or not numero_ingresado.isdigit():
+            numero_ingresado = prompt("Numero", "Ingrese un numero")
+
         numero_ingresado = int(numero_ingresado)
         contador = 0
         lista_numeros = range(1,numero_ingresado+1)

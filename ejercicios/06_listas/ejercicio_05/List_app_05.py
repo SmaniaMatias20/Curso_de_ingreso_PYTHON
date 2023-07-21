@@ -24,8 +24,13 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        acumulador = 0
+
+        for numero in self.lista_datos:
+            acumulador += numero
     
+        alert("Sumatoria", f"La suma de todos los valores de la lista da como resultado: {acumulador}")
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

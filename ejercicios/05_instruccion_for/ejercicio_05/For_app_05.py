@@ -28,8 +28,8 @@ class App(customtkinter.CTk):
         lista_veces = range(1000)
 
         for i in lista_veces:
-            pregunta = question("Pregunta", "¿Desea continuar?")
-            if not pregunta:
+            respuesta = question("Pregunta", "¿Desea continuar?")
+            if not respuesta:
                 break
         
     
