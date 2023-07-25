@@ -33,20 +33,6 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
 
-        '''
-        Nombre: Matias
-        Apellido: Smania
-
-        De los candidatos a las paso del mes de Octubre (no sabemos cuantos), se registra:
-        nombre, la edad (mayor 25) y la cantidad de votos (no menor a cero) que recibio en las elecciones.
-        Informar: 
-        a. nombre del candidato con más votos
-        b. nombre y edad del candidato con menos votos
-        c. el promedio de edades de los candidatos
-        d. total de votos emitidos.
-        Todos los datos se ingresan por prompt y los resultados por consola (print)
-
-        '''
         respuesta = True
         acumulador_edades = 0
         maximo_votos = 0 
@@ -91,7 +77,11 @@ class App(customtkinter.CTk):
                     candidato_con_menos_votos = nombre_ingresado
                     edad_candidato_con_menos_votos = edad_ingresada 
                     minimo_votos = cantidad_votos
-                    
+            else: 
+                print("Error! Los votos deben ser mayor a 0")
+                continue
+
+
             contador_candidatos += 1
             respuesta= question("Ingreso", "¿Desea ingresar un nuevo candidato?")
 
