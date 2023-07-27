@@ -122,18 +122,17 @@ class App(customtkinter.CTk):
             print(f"Posicion: {contador}" )
             contador += 1
 
-            
-
-
-
     def btn_informar_on_click(self):
         lista_numeros_repetidos = []
+        lista_mayores_promedio = []
         contador = 0
         contador_2 = 0
+        acumulador_peso = 0
         bandera = True
 
         for peso in self.lista_pesos:
             contador += 1
+            acumulador_peso += peso 
             for peso_2 in self.lista_pesos:
                 contador_2 += 1
                 if peso_2 == peso and contador != contador_2:
@@ -150,15 +149,26 @@ class App(customtkinter.CTk):
             if peso < peso_mas_liviano:
                 peso_mas_liviano = peso
 
-               
-            
+        if contador != 0:
+            promedio_peso = acumulador_peso // contador    
+        else:
+            promedio_peso = 0
+
+        for peso in self.lista_pesos:
+            if peso > promedio_peso:
+                lista_mayores_promedio.append(peso)
+
         alert("Peso", f"El peso mas liviano es: {peso_mas_liviano}")
 
         for numero_repetido in lista_numeros_repetidos:
-            alert("Numero repetido", numero_repetido)  
+            alert("Numero repetido", f"Numero repetido: {numero_repetido}")  
 
+        alert("Promedio", f"El promedio de peso es: {promedio_peso}")
+
+        for numero in lista_mayores_promedio:
+            alert("Numeros", f"Numeros mayores al promedio: {numero}")  
             
-
+        alert("Cantidad", f"La cantidad de articulos que superan el peso promedio es: {len(lista_mayores_promedio)}")
 
 
 

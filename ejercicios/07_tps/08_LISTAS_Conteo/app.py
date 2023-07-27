@@ -46,24 +46,6 @@ class App(customtkinter.CTk):
 
         self.lista = []
 
-    '''
-    Enunciado:
-    Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el
-    usuario quiera hasta que presione el botón Cancelar (en el prompt). 
-    Luego calcular:
-        a. La suma acumulada de los negativos
-        b. La suma acumulada de los positivos
-        c. Cantidad de números positivos ingresados
-        d. Cantidad de números negativos ingresados
-        e. Cantidad de ceros
-        f. El minimo de los negativos
-        g. El maximo de los positivos
-        h. El promedio de los negativos
-
-    Informar los resultados mediante alert()
-
-    '''
-
     def btn_comenzar_ingreso_on_click(self):
         
         numero_ingresado = ""
