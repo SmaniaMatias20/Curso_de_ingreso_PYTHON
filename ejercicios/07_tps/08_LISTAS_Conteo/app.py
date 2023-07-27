@@ -77,18 +77,9 @@ class App(customtkinter.CTk):
             if numero_ingresado == "" or numero_ingresado.isalpha():
                 continue
             
-            
-
             numero_ingresado = int(numero_ingresado)
 
             self.lista.append(numero_ingresado)
-
-                   
-              
-
-        
-
-
 
     def btn_mostrar_estadisticas_on_click(self):
 

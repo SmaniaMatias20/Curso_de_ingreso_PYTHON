@@ -114,10 +114,12 @@ class App(customtkinter.CTk):
             while puesto == None or not puesto.isalpha() or puesto.upper() != "JR" and puesto.upper() != "SSR" and puesto.upper() != "SR" :
                 puesto = prompt("Puesto", "Error! Ingrese el puesto JR/SSR/SR") 
 
+            
             if genero.upper() == "NB" and (tecnologia.upper() == "ASP.NET" or tecnologia.upper() == "JS"):
                 if edad >= 25 and edad <= 40:
                     if puesto.upper() == "SR":
                         postulantes_no_binarios_aspnet_js += 1
+
 
             if puesto.upper() == "JR":
                 if menor_edad_jr == 0:
@@ -149,8 +151,6 @@ class App(customtkinter.CTk):
             else:
                 contador_tecnologia_net += 1       
 
-
-        #PUNTO C 
         if contador_edad_m != 0:       
             promedio_edad_m = acumulador_edad_m // contador_edad_m
         else:
